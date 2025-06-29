@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { quizzes } from "../db/quizzes.js";
-import { authVerify } from "../controllers/authControllers.js";
+import { authVerify } from "../middleware/authverify.js";
 
 const quizRouter = express.Router();
 quizRouter.use(cors());
