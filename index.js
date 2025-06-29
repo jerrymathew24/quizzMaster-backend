@@ -3,6 +3,7 @@ import cors from "cors";
 import quizRouter from "./router/quizRouter.js";
 import { loginRouter, signupRouter } from "./router/authRouter.js";
 import { routeNotFound } from "./middleware/routeNotFound.js";
+import { quizzes } from "./db/quizzes.js";
 
 const app = express();
 app.use(cors());
@@ -10,7 +11,7 @@ app.use(express.json());
 const PORT = 8080;
 
 app.get("/", (req, res) => {
-  res.send("Hello, Worldddxxyyx!");
+  res.json(quizzes)
 });
 
 app.use("/quiz", quizRouter);
