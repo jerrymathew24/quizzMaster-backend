@@ -1,7 +1,8 @@
 import express from "express";
 import cors from "cors";
 import quizRouter from "./router/quizRouter.js";
-import authRouter from "./router/authRouter.js";
+import { loginRouter, signupRouter } from "./router/authRouter.js";
+import { authVerify } from "./controllers/authControllers.js";
 
 const app = express();
 app.use(cors());
@@ -13,7 +14,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/quiz", quizRouter);
-app.use("/auth/login", authRouter);
+app.use("/auth/login", loginRouter);
+app.use("/auth/signup", signupRouter)
 
 
 app.listen(PORT, () => {
