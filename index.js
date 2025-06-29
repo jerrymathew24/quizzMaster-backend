@@ -4,6 +4,7 @@ import quizRouter from "./router/quizRouter.js";
 import { loginRouter, signupRouter } from "./router/authRouter.js";
 import { routeNotFound } from "./middleware/routeNotFound.js";
 import { quizzes } from "./db/quizzes.js";
+import { categoriesRouter } from "./router/categoriesRouter.js"
 
 const app = express();
 app.use(cors());
@@ -14,6 +15,7 @@ app.get("/", (req, res) => {
   res.json(quizzes)
 });
 
+app.use("/categories", categoriesRouter);
 app.use("/quiz", quizRouter);
 app.use("/auth/login", loginRouter);
 app.use("/auth/signup", signupRouter);
